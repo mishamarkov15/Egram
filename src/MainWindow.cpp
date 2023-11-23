@@ -4,7 +4,8 @@ MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         gridLayout(new QGridLayout()),
         centralWidget(new QWidget()),
-        splitter(new QSplitter()) {
+        splitter(new QSplitter()),
+        contactList(new ContactList()) {
     initWidgets();
     initLayout();
     initConnections();
@@ -18,6 +19,8 @@ void MainWindow::initWidgets() {
 
 void MainWindow::initLayout() {
     gridLayout->addWidget(splitter);
+
+    splitter->addWidget(contactList);
 }
 
 void MainWindow::initConnections() {

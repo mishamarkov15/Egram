@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QSplitter>
 #include <QString>
+#include "ContactList.h"
 
 const QString APP_NAME = "Egram";
 
@@ -23,6 +24,7 @@ private:
     QGridLayout* gridLayout;
     QWidget* centralWidget;
     QSplitter* splitter;
+    ContactList* contactList;
 };
 
 
