@@ -5,14 +5,15 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QGridLayout>
+#include "ContactItem.h"
 
 class ContactList : public QWidget {
     Q_OBJECT;
 public:
-    explicit ContactList(QWidget* parent = nullptr);
+    explicit ContactList(const  QVector< QMap<QString, QString> >& contacts, QWidget* parent = nullptr);
 private:
 
-    void initWidgets();
+    void initWidgets( const QVector< QMap<QString, QString> >& contacts);
     void initLayout();
     void initConnections();
     void initStyles();

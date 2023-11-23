@@ -15,7 +15,7 @@ find_package(Qt6 COMPONENTS
         Sql
         REQUIRED)
 
-add_executable(Egram main.cpp src/MainWindow.cpp headers/MainWindow.h src/ContactList.cpp headers/ContactList.h)
+add_executable(Egram main.cpp src/MainWindow.cpp headers/MainWindow.h src/ContactList.cpp headers/ContactList.h headers/ContactItem.cpp headers/ContactItem.h)
 target_link_libraries(Egram
         Qt::Core
         Qt::Gui
