@@ -1,4 +1,4 @@
-#include "ContactItem.h"
+#include "../headers/ContactItem.h"
 
 ContactItem::ContactItem(const QMap<QString, QString>& contactItem, QWidget *parent) :
         QWidget(parent),
