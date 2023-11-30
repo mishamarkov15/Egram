@@ -1,4 +1,4 @@
-#include "chatmessagewidget.h"
+#include "../headers/chatmessagewidget.h"
 #include <QtWidgets>
 
 ChatMessageWidget::ChatMessageWidget(const QString& sender, const QString& message, const QString& timestamp, bool isCurrentUser, QWidget* parent)
