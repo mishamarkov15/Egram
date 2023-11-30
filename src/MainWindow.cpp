@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
                                             {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Steve Jobs 🐺"}, {"last_message", "How are u?"}, {"last_message_time", "4:16 PM"}},
                                             {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Ilon Mask😛"}, {"last_message", "I want buy this chat)))"}, {"last_message_time", "2:16 PM"}},
                                             {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"}, {"last_message_time", "4:40 PM"}},
-                                    })) {
+                                    })),
+                                    chat(new ChatWidget()){
     initWidgets();
     initLayout();
     initConnections();
@@ -25,6 +26,7 @@ void MainWindow::initLayout() {
     gridLayout->addWidget(splitter);
 
     splitter->addWidget(contactList);
+    splitter->addWidget(chat);
 }
 
 void MainWindow::initConnections() {

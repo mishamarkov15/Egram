@@ -33,6 +33,5 @@ void ContactList::initConnections() {
 }
 
 void ContactList::initStyles() {
-
 }
 

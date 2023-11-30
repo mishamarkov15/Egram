@@ -7,6 +7,7 @@
 #include <QSplitter>
 #include <QString>
 #include "ContactList.h"
+#include "ChatWidget.h"
 
 const QString APP_NAME = "Egram";
 
@@ -25,6 +26,7 @@ private:
     QWidget* centralWidget;
     QSplitter* splitter;
     ContactList* contactList;
+    ChatWidget* chat;
 };
 
 

@@ -41,5 +41,4 @@ void ContactItem::initConnections() {
 }
 
 void ContactItem::initStyles() {
-
 }
