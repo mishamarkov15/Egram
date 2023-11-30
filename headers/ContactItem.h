@@ -1,7 +1,3 @@
-//
-// Created by Михаил Марков on 23/11/2023.
-//
-
 #ifndef EGRAM_CONTACTITEM_H
 #define EGRAM_CONTACTITEM_H
 
