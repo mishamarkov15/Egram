@@ -1,4 +1,4 @@
-#include "chatbannerwidget.h"
+#include "../headers/chatbannerwidget.h"
 #include <QDateTime>
 #include <QFont>
 
