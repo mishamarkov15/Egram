@@ -1,5 +1,6 @@
 #include "../headers/ContactItem.h"
 
+
 ContactItem::ContactItem(const QMap<QString, QString> &contactItem, QWidget *parent) :
         QWidget(parent),
         gridLayout(new QGridLayout()),
@@ -31,10 +32,10 @@ void ContactItem::initWidgets(const QMap<QString, QString> &contactItem) {
 }
 
 void ContactItem::initLayout() {
-    gridLayout->addWidget(avatarImage, 0, 0, 3, 1);
+    gridLayout->addWidget(avatarImage, 0, 0, 2, 1);
     gridLayout->addWidget(nameLabel, 0, 1, 1, 5);
-    gridLayout->addWidget(lastMessageTime, 0, 6, 1, 1);
-    gridLayout->addWidget(lastMessage, 1, 1, 1, 6);
+    gridLayout->addWidget(lastMessageTime, 0, 5, 1, 1);
+    gridLayout->addWidget(lastMessage, 1, 1, 1, 5);
 }
 
 void ContactItem::initConnections() {
@@ -42,8 +43,25 @@ void ContactItem::initConnections() {
 }
 
 void ContactItem::initStyles() {
+    setFixedSize(350, 75);
+    setMaximumHeight(75);
+    setStyleSheet("background-color: black;");
+
+
+    avatarImage->setMaximumHeight(30);
+    avatarImage->setMaximumWidth(30);
+    nameLabel->setMaximumHeight(20);
+    lastMessageTime->setMaximumHeight(15);
+    lastMessage->setMaximumHeight(20);
+    gridLayout->setContentsMargins(10, 0, 10, 0);
+    gridLayout->setSpacing(10);
+    gridLayout->setVerticalSpacing(0);
+    gridLayout->setRowStretch(0, 0);
+    gridLayout->setRowStretch(1, 1);
 }
 
 quint64 ContactItem::getId() {
     return user_id;
 }
+
+

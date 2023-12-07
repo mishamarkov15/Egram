@@ -4,17 +4,16 @@
 
 chatbannerwidget::chatbannerwidget(QWidget *parent)
         : QWidget(parent),
-        bannerLabel(new QLabel(this))
+        bannerLabel(new QLabel(this)),
+        gridLayout(new QGridLayout(this))
+
 {
-    setWindowTitle("Пример баннера пользователя");
-    setFixedSize(400, 100);
 
     bannerLabel->setAlignment(Qt::AlignCenter);
-    bannerLabel->setGeometry(0, 0, width(), height());
 
 
-    bannerLabel->setStyleSheet("background-color: #333333; color: #fff; border: 2px solid #000000;");
-    QFont font("Arial", 16, QFont::Bold);
+    bannerLabel->setStyleSheet("background-color: black; color: #fff; border:1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    QFont font("Arial", 12, QFont::Bold);
     bannerLabel->setFont(font);
 
 
@@ -33,6 +32,11 @@ chatbannerwidget::chatbannerwidget(QWidget *parent)
                                                                                                 "</body>";
 
     bannerLabel->setText(bannerText);
+
+
+    gridLayout->addWidget(bannerLabel, 0, 0, 1, 0);
+    gridLayout->setColumnStretch(0, 1);
+    setLayout(gridLayout);
 }
 
 

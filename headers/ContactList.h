@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QGridLayout>
+#include <QPushButton>
 #include "ContactItem.h"
 
 class ContactList : public QWidget {
@@ -32,6 +33,7 @@ private:
 
     void initStyles();
 
+    QPushButton *FuncButton;
     QGridLayout *gridLayout;
     QListWidget *listWidget;
     QLineEdit *searchField;

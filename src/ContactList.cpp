@@ -1,10 +1,12 @@
 #include "../headers/ContactList.h"
 
+
 ContactList::ContactList(QWidget *parent) :
         QWidget(parent),
         gridLayout(new QGridLayout()),
         listWidget(new QListWidget()),
-        searchField(new QLineEdit()) {
+        searchField(new QLineEdit()),
+        FuncButton(new QPushButton("⋮")){
     initWidgets();
     initLayout();
     initConnections();
@@ -26,12 +28,14 @@ void ContactList::setContacts(const QVector<QMap<QString, QString>> &contacts) {
 }
 
 void ContactList::initLayout() {
-    gridLayout->addWidget(searchField, 0, 0, 1, 1);
-    gridLayout->addWidget(listWidget, 1, 0, 1, 1);
+    gridLayout->addWidget(FuncButton, 0, 0, 1, 1);
+    gridLayout->addWidget(searchField, 0, 1, 1, 1);
+    gridLayout->addWidget(listWidget, 1, 1, 1, 1);
 }
 
 void ContactList::initConnections() {
     connect(listWidget, &QListWidget::itemClicked, this, &ContactList::emitContactClicked);
+
 }
 
 void ContactList::emitContactClicked() {
@@ -42,5 +46,10 @@ void ContactList::emitContactClicked() {
 }
 
 void ContactList::initStyles() {
+    setStyleSheet("background-color: black; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    FuncButton->setStyleSheet("color:white; border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px; ");
+    searchField->setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    searchField->setPlaceholderText("Search a user...");
+    listWidget->setStyleSheet("background-color: black; ");
 }
 

@@ -17,6 +17,7 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
 private slots:
     void openChat(quint64 id);
+    void setstyle();
 private:
 
     void initWidgets();

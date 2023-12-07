@@ -43,7 +43,10 @@ void ChatWidget::initLayoutEmpty() {
 
 void ChatWidget::initConnectionsEmpty() {}
 
-void ChatWidget::initStylesEmpty() {}
+void ChatWidget::initStylesEmpty() {
+    setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    emptyChatTitle->setStyleSheet("color: white;");
+}
 
 void ChatWidget::initWidgets() {
     setLayout(gridLayout);
@@ -66,7 +69,8 @@ void ChatWidget::initConnections() {
 }
 
 void ChatWidget::initStyles() {
-
+    setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    sendMessage->setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
 }
 
 

@@ -18,6 +18,7 @@ private:
     void initConnections();
     void initStyles();
 
+
     QGridLayout* gridLayout;
     QLabel* nameLabel;
     QLabel* lastMessage;

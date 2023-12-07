@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QGridLayout>
 
 class chatbannerwidget : public QWidget
 {
@@ -13,6 +14,7 @@ public:
 
 private:
     QLabel *bannerLabel;
+    QGridLayout* gridLayout;
 };
 
 

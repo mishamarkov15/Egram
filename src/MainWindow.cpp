@@ -24,7 +24,7 @@ void MainWindow::initWidgets() {
 //                             });
     contactList->setContacts({
                                      {{"avatar",
-                                       "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"},
+                                       "../pictures/rus.png"},
                                       {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"},
                                       {"last_message_time", "4:40 PM"}, {"user_id", "2"}},
                              });
@@ -39,14 +39,26 @@ void MainWindow::initLayout() {
 
 void MainWindow::initConnections() {
     connect(contactList, &ContactList::contactClicked, this, &MainWindow::openChat);
+    connect(contactList, &ContactList::contactClicked, this, &MainWindow::setstyle);
 }
 
 void MainWindow::initStyles() {
+
     setWindowTitle(APP_NAME);
+    setMinimumSize(1000, 600);
+    setStyleSheet("background-color: black");
+    contactList->setStyleSheet("background-color: black;");
+    centralWidget->setStyleSheet("background-color: black;");
+
+
 }
 
 void MainWindow::openChat(quint64 id) {
     delete chat;
     chat = new ChatWidget(current_user_id, id);
     splitter->addWidget(chat);
+}
+
+void MainWindow::setstyle() {
+
 }
