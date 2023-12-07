@@ -1,14 +1,14 @@
-#include "chatmessagewidget.h"
+#include "../headers/chatmessagewidget.h"
 #include <QtWidgets>
 
-ChatMessageWidget::ChatMessageWidget(const QString& sender, const QString& message, const QString& timestamp, bool isCurrentUser, QWidget* parent)
-        : QWidget(parent)
-{
+ChatMessageWidget::ChatMessageWidget(const QString &sender, const QString &message, const QString &timestamp,
+                                     bool isCurrentUser, QWidget *parent)
+        : QWidget(parent) {
     senderLabel = new QLabel(sender);
     messageLabel = new QLabel(message);
     timestampLabel = new QLabel(timestamp);
 
-    QVBoxLayout* layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(senderLabel);
     layout->addWidget(messageLabel);
     layout->addWidget(timestampLabel);
@@ -53,7 +53,6 @@ ChatMessageWidget::ChatMessageWidget(const QString& sender, const QString& messa
 }
 
 // Задаю размер по умолчанию
-QSize ChatMessageWidget::sizeHint() const
-{
+QSize ChatMessageWidget::sizeHint() const {
     return QSize(300, 100);
 }
