@@ -16,7 +16,7 @@ Q_OBJECT;
 public:
     explicit MainWindow(QWidget* parent = nullptr);
 private slots:
-    void openChat();
+    void openChat(quint64 id);
 private:
 
     void initWidgets();
@@ -29,6 +29,7 @@ private:
     QSplitter* splitter;
     ContactList* contactList;
     ChatWidget* chat;
+    quint64 current_user_id = 1;
 };
 
 

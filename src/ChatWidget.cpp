@@ -48,7 +48,10 @@ void ChatWidget::initStylesEmpty() {}
 void ChatWidget::initWidgets() {
     setLayout(gridLayout);
 
+    sendMessage->setText("Send");
 
+    lineEdit->setPlaceholderText("Type here message...");
+    lineEdit->setStyleSheet("padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
 }
 
 void ChatWidget::initLayout() {

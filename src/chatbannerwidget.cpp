@@ -7,6 +7,7 @@ chatbannerwidget::chatbannerwidget(QWidget *parent)
         bannerLabel(new QLabel(this))
 {
     setWindowTitle("Пример баннера пользователя");
+    setFixedSize(400, 100);
 
     bannerLabel->setAlignment(Qt::AlignCenter);
     bannerLabel->setGeometry(0, 0, width(), height());

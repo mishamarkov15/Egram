@@ -1,6 +1,6 @@
 #include "../headers/ContactItem.h"
 
-ContactItem::ContactItem(const QMap<QString, QString>& contactItem, QWidget *parent) :
+ContactItem::ContactItem(const QMap<QString, QString> &contactItem, QWidget *parent) :
         QWidget(parent),
         gridLayout(new QGridLayout()),
         nameLabel(new QLabel()),
@@ -13,7 +13,7 @@ ContactItem::ContactItem(const QMap<QString, QString>& contactItem, QWidget *par
     initStyles();
 }
 
-void ContactItem::initWidgets(const QMap<QString, QString>& contactItem) {
+void ContactItem::initWidgets(const QMap<QString, QString> &contactItem) {
     setLayout(gridLayout);
 
     try {
@@ -21,7 +21,8 @@ void ContactItem::initWidgets(const QMap<QString, QString>& contactItem) {
         nameLabel->setText(contactItem["name"]);
         lastMessage->setText(contactItem["last_message"]);
         lastMessageTime->setText(contactItem["last_message_time"]);
-    } catch (std::out_of_range& error) {
+        user_id = contactItem["user_id"].toULongLong();
+    } catch (std::out_of_range &error) {
         qCritical() << error.what() << '\n';
         QErrorMessage msg(this);
         msg.showMessage(error.what());
@@ -41,4 +42,8 @@ void ContactItem::initConnections() {
 }
 
 void ContactItem::initStyles() {
+}
+
+quint64 ContactItem::getId() {
+    return user_id;
 }

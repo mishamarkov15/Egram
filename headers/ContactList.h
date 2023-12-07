@@ -8,22 +8,33 @@
 #include "ContactItem.h"
 
 class ContactList : public QWidget {
-    Q_OBJECT;
+Q_OBJECT;
 public:
-    explicit ContactList(const  QVector< QMap<QString, QString> >& contacts, QWidget* parent = nullptr);
+    explicit ContactList(QWidget *parent = nullptr);
+
+    void setContacts(const QVector<QMap<QString, QString> > &contacts);
+
 signals:
-    void contactClicked();
+
+    void contactClicked(quint64 id);
+
 private slots:
+
     void emitContactClicked();
+
 private:
 
-    void initWidgets( const QVector< QMap<QString, QString> >& contacts);
+    void initWidgets();
+
     void initLayout();
+
     void initConnections();
+
     void initStyles();
-    QGridLayout* gridLayout;
-    QListWidget* listWidget;
-    QLineEdit* searchField;
+
+    QGridLayout *gridLayout;
+    QListWidget *listWidget;
+    QLineEdit *searchField;
 };
 
 

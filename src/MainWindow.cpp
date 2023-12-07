@@ -5,12 +5,8 @@ MainWindow::MainWindow(QWidget *parent) :
         gridLayout(new QGridLayout()),
         centralWidget(new QWidget()),
         splitter(new QSplitter()),
-        contactList(new ContactList({
-                                            {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Steve Jobs 🐺"}, {"last_message", "How are u?"}, {"last_message_time", "4:16 PM"}},
-                                            {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Ilon Mask😛"}, {"last_message", "I want buy this chat)))"}, {"last_message_time", "2:16 PM"}},
-                                            {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"}, {"last_message_time", "4:40 PM"}},
-                                    })),
-                                    chat(new ChatWidget()){
+        contactList(new ContactList()),
+        chat(new ChatWidget()) {
     initWidgets();
     initLayout();
     initConnections();
@@ -20,6 +16,18 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::initWidgets() {
     setCentralWidget(centralWidget);
     centralWidget->setLayout(gridLayout);
+
+//    contactList->setContacts({
+//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Steve Jobs 🐺"}, {"last_message", "How are u?"}, {"last_message_time", "4:16 PM"}},
+//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Ilon Mask😛"}, {"last_message", "I want buy this chat)))"}, {"last_message_time", "2:16 PM"}},
+//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"}, {"last_message_time", "4:40 PM"}},
+//                             });
+    contactList->setContacts({
+                                     {{"avatar",
+                                       "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"},
+                                      {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"},
+                                      {"last_message_time", "4:40 PM"}, {"user_id", "2"}},
+                             });
 }
 
 void MainWindow::initLayout() {
@@ -37,8 +45,8 @@ void MainWindow::initStyles() {
     setWindowTitle(APP_NAME);
 }
 
-void MainWindow::openChat() {
+void MainWindow::openChat(quint64 id) {
     delete chat;
-    chat = new ChatWidget(1, 2);
+    chat = new ChatWidget(current_user_id, id);
     splitter->addWidget(chat);
 }

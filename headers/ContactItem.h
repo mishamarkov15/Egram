@@ -11,6 +11,7 @@ class ContactItem : public QWidget {
 Q_OBJECT;
 public:
     explicit ContactItem(const QMap<QString, QString>& contactItem, QWidget*parent = nullptr);
+     quint64 getId() ;
 private:
     void initWidgets(const QMap<QString, QString>& contactItem);
     void initLayout();
@@ -22,6 +23,7 @@ private:
     QLabel* lastMessage;
     QLabel* lastMessageTime;
     QLabel* avatarImage;
+    quint64 user_id;
 };
 
 
