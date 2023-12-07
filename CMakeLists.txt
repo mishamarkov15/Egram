@@ -16,9 +16,12 @@ find_package(Qt6 COMPONENTS
         Sql
         REQUIRED)
 
-add_executable(Egram main.cpp src/MainWindow.cpp headers/MainWindow.h src/ContactList.cpp headers/ContactList.h src/ContactItem.cpp headers/ContactItem.h
-        src/chatmessagewidget.cpp
-        headers/chatmessagewidget.h src/ChatWidget.cpp headers/ChatWidget.h)
+
+set(SOURCES src/chatbannerwidget.cpp src/chatmessagewidget.cpp src/ContactItem.cpp src/ContactList.cpp src/MainWindow.cpp src/ChatWidget.cpp src/Chat.cpp)
+set(HEADERS headers/chatbannerwidget.h headers/chatmessagewidget.h headers/ContactItem.h headers/ContactList.h headers/MainWindow.h headers/ChatWidget.h headers/Chat.h)
+
+add_executable(Egram main.cpp ${SOURCES} ${HEADERS})
+
 target_link_libraries(Egram
         Qt::Core
         Qt::Gui

@@ -2,10 +2,9 @@
 
 ChatWidget::ChatWidget(QWidget *parent) :
         QWidget(parent),
+        banner(nullptr),
         gridLayout(new QGridLayout()),
         listWidget(nullptr),
-        contactName(nullptr),
-        lastOnlineTime(nullptr),
         lineEdit(nullptr),
         emptyChatTitle(new QLabel()),
         sendMessage(nullptr), sender_id(0), contact_id(0) {
@@ -17,10 +16,9 @@ ChatWidget::ChatWidget(QWidget *parent) :
 
 ChatWidget::ChatWidget(quint64 sender_id, quint64 contact_id, QWidget *parent) :
         QWidget(parent),
+        banner(new chatbannerwidget()),
         gridLayout(new QGridLayout()),
         listWidget(new QListWidget()),
-        contactName(new QLabel()),
-        lastOnlineTime(new QLabel()),
         lineEdit(new QLineEdit()),
         sendMessage(new QPushButton()),
         sender_id(sender_id),
@@ -48,11 +46,16 @@ void ChatWidget::initConnectionsEmpty() {}
 void ChatWidget::initStylesEmpty() {}
 
 void ChatWidget::initWidgets() {
+    setLayout(gridLayout);
+
 
 }
 
 void ChatWidget::initLayout() {
-    setLayout(gridLayout);
+    gridLayout->addWidget(banner, 0, 0, 1, 5);
+    gridLayout->addWidget(listWidget, 1, 0, 5, 5);
+    gridLayout->addWidget(lineEdit, 6, 0, 1, 4);
+    gridLayout->addWidget(sendMessage, 6, 4, 1, 1);
 }
 
 void ChatWidget::initConnections() {

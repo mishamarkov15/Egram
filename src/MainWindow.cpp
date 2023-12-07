@@ -30,9 +30,15 @@ void MainWindow::initLayout() {
 }
 
 void MainWindow::initConnections() {
-
+    connect(contactList, &ContactList::contactClicked, this, &MainWindow::openChat);
 }
 
 void MainWindow::initStyles() {
     setWindowTitle(APP_NAME);
+}
+
+void MainWindow::openChat() {
+    delete chat;
+    chat = new ChatWidget(1, 2);
+    splitter->addWidget(chat);
 }

@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include "chatbannerwidget.h"
 
 class ChatWidget : public QWidget {
 Q_OBJECT;
@@ -29,10 +30,9 @@ private:
 
     QGridLayout* gridLayout;
     QListWidget* listWidget;
-    QLabel* contactName;
-    QLabel* lastOnlineTime;
     QLineEdit* lineEdit;
     QPushButton* sendMessage;
+    chatbannerwidget* banner;
     quint64 sender_id;
     quint64 contact_id;
 };

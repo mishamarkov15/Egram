@@ -11,6 +11,10 @@ class ContactList : public QWidget {
     Q_OBJECT;
 public:
     explicit ContactList(const  QVector< QMap<QString, QString> >& contacts, QWidget* parent = nullptr);
+signals:
+    void contactClicked();
+private slots:
+    void emitContactClicked();
 private:
 
     void initWidgets( const QVector< QMap<QString, QString> >& contacts);

@@ -29,7 +29,11 @@ void ContactList::initLayout() {
 }
 
 void ContactList::initConnections() {
+    connect(listWidget, &QListWidget::itemClicked, this, &ContactList::emitContactClicked);
+}
 
+void ContactList::emitContactClicked() {
+    emit contactClicked();
 }
 
 void ContactList::initStyles() {
