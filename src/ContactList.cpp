@@ -6,7 +6,7 @@ ContactList::ContactList(QWidget *parent) :
         gridLayout(new QGridLayout()),
         listWidget(new QListWidget()),
         searchField(new QLineEdit()),
-        FuncButton(new QPushButton("⋮")){
+        FuncButton(new QPushButton("≡")){
     initWidgets();
     initLayout();
     initConnections();
@@ -47,7 +47,10 @@ void ContactList::emitContactClicked() {
 
 void ContactList::initStyles() {
     setStyleSheet("background-color: black; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
-    FuncButton->setStyleSheet("color:white; border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px; ");
+    FuncButton->setStyleSheet("QPushButton{background-color: black; color: white; letter-spacing: 1px; Font-Size: 38px; font-weight: 300; text-align: center;}"
+                              "QPushButton:hover{background-color: black; color: gray;}");
+    FuncButton->setFixedSize(40,45);
+
     searchField->setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
     searchField->setPlaceholderText("Search a user...");
     listWidget->setStyleSheet("background-color: black; ");
