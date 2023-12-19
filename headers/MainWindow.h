@@ -8,6 +8,7 @@
 #include <QString>
 #include "ContactList.h"
 #include "ChatWidget.h"
+#include "DatabaseManager.h"
 
 const QString APP_NAME = "Egram";
 
@@ -30,6 +31,7 @@ private:
     QSplitter* splitter;
     ContactList* contactList;
     ChatWidget* chat;
+    DatabaseManager* manager;
     quint64 current_user_id = 1;
 };
 

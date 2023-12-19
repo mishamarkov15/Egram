@@ -6,7 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
         centralWidget(new QWidget()),
         splitter(new QSplitter()),
         contactList(new ContactList()),
-        chat(new ChatWidget()) {
+        chat(new ChatWidget()),
+        manager(new DatabaseManager("localhost", "egram", "mikhaiil", "higofi19", 5432)) {
     initWidgets();
     initLayout();
     initConnections();
@@ -16,18 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::initWidgets() {
     setCentralWidget(centralWidget);
     centralWidget->setLayout(gridLayout);
-
-//    contactList->setContacts({
-//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Steve Jobs 🐺"}, {"last_message", "How are u?"}, {"last_message_time", "4:16 PM"}},
-//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Ilon Mask😛"}, {"last_message", "I want buy this chat)))"}, {"last_message_time", "2:16 PM"}},
-//                                     {{"avatar", "/Users/mikhaiil/PycharmProjects/MarkusShop/media/courses/С++ для студентов/cpp_logo.png"}, {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"}, {"last_message_time", "4:40 PM"}},
-//                             });
-    contactList->setContacts({
-                                     {{"avatar",
-                                       "../pictures/rus.png"},
-                                      {"name", "Vladimir Vladimirovich 🇷🇺"}, {"last_message", "Хочу на рыбалку"},
-                                      {"last_message_time", "4:40 PM"}, {"user_id", "2"}},
-                             });
+    auto contacts = manager->selectContactsForUser(current_user_id);
+    contactList->setContacts(contacts);
 }
 
 void MainWindow::initLayout() {
@@ -43,14 +34,11 @@ void MainWindow::initConnections() {
 }
 
 void MainWindow::initStyles() {
-
     setWindowTitle(APP_NAME);
     setMinimumSize(1000, 600);
     setStyleSheet("background-color: black");
     contactList->setStyleSheet("background-color: black;");
     centralWidget->setStyleSheet("background-color: black;");
-
-
 }
 
 void MainWindow::openChat(quint64 id) {

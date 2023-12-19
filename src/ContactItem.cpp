@@ -18,10 +18,26 @@ void ContactItem::initWidgets(const QMap<QString, QString> &contactItem) {
     setLayout(gridLayout);
 
     try {
-        avatarImage->setPixmap(QPixmap(contactItem["avatar"]).scaled(32, 32));
-        nameLabel->setText(contactItem["name"]);
-        lastMessage->setText(contactItem["last_message"]);
-        lastMessageTime->setText(contactItem["last_message_time"]);
+        if (contactItem.find("avatar") != contactItem.end()) {
+            avatarImage->setPixmap(QPixmap(contactItem["avatar"]).scaled(32, 32));
+        } else {
+            avatarImage->setText("A");
+        }
+
+        auto first_name = contactItem.find("first_name");
+        auto last_name = contactItem.find("last_name");
+        auto username = contactItem.find("username");
+        if (first_name != contactItem.end()) {
+            if (last_name != contactItem.end()) {
+                nameLabel->setText(QList<QString>{first_name.value(), last_name.value()}.join(' '));
+            } else {
+                nameLabel->setText(first_name.value());
+            }
+        } else {
+            nameLabel->setText(username.value());
+        }
+        lastMessage->setText("lorem ipsum...");
+        lastMessageTime->setText("4:34 PM");
         user_id = contactItem["user_id"].toULongLong();
     } catch (std::out_of_range &error) {
         qCritical() << error.what() << '\n';

@@ -4,6 +4,7 @@
 #include <QListWidget>
 #include <QWidget>
 #include <QLineEdit>
+#include <QList>
 #include <QGridLayout>
 #include <QPushButton>
 #include "ContactItem.h"
@@ -13,7 +14,7 @@ Q_OBJECT;
 public:
     explicit ContactList(QWidget *parent = nullptr);
 
-    void setContacts(const QVector<QMap<QString, QString> > &contacts);
+    void setContacts(const QList<QMap<QString, QString> > &contacts);
 
 signals:
 

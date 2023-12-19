@@ -17,7 +17,7 @@ void ContactList::initWidgets() {
     setLayout(gridLayout);
 }
 
-void ContactList::setContacts(const QVector<QMap<QString, QString>> &contacts) {
+void ContactList::setContacts(const QList<QMap<QString, QString>> &contacts) {
     for (const auto &contact: contacts) {
         auto *list_item_contact = new ContactItem(contact, this);
         auto *item = new QListWidgetItem();

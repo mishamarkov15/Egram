@@ -17,6 +17,8 @@ public:
 
     ~DatabaseManager();
 
+    [[nodiscard]] QList<QMap<QString, QString>> selectContactsForUser(quint64 user_id) const;
+
 private:
     QSqlDatabase db;
 };
