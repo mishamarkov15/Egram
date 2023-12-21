@@ -25,5 +25,5 @@ void Chat::initConnections() {
 }
 
 void Chat::initStyles() {
-
+    sendButton->setStyleSheet("QPushButton:hover {background: aqua; pointer: cursor;} QPushButton {background: black;}");
 }

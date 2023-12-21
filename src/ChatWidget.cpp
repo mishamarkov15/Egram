@@ -70,7 +70,8 @@ void ChatWidget::initConnections() {
 
 void ChatWidget::initStyles() {
     setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
-    sendMessage->setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
+    sendMessage->setStyleSheet("QPushButton:hover {background: gray; } QPushButton {border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;}");
+    sendMessage->setCursor(QCursor(Qt::PointingHandCursor));
 }
 
 
