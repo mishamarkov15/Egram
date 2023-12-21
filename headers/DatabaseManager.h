@@ -8,19 +8,25 @@
 #include <QMap>
 
 class DatabaseManager {
-public:
+private:
     DatabaseManager() = delete;
 
     DatabaseManager(const QString& host, const QString& database_name, const QString& username, const QString& password, qint32 port);
 
     explicit DatabaseManager(const QMap<QString, QString>& params);
 
+
+
     ~DatabaseManager();
+    QSqlDatabase db;
+    DatabaseManager* manager;
+public:
+    static DatabaseManager& getInstance();
+
+    DatabaseManager(const DatabaseManager&) = delete;
+    void operator=(const DatabaseManager&) = delete;
 
     [[nodiscard]] QList<QMap<QString, QString>> selectContactsForUser(quint64 user_id) const;
-
-private:
-    QSqlDatabase db;
 };
 
 

@@ -6,8 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
         centralWidget(new QWidget()),
         splitter(new QSplitter()),
         contactList(new ContactList()),
-        chat(new ChatWidget()),
-        manager(new DatabaseManager("localhost", "egram", "mikhaiil", "higofi19", 5432)) {
+        chat(new ChatWidget()) {
     initWidgets();
     initLayout();
     initConnections();
@@ -17,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::initWidgets() {
     setCentralWidget(centralWidget);
     centralWidget->setLayout(gridLayout);
-    auto contacts = manager->selectContactsForUser(current_user_id);
+    auto contacts = DatabaseManager::getInstance().selectContactsForUser(current_user_id);
     contactList->setContacts(contacts);
 }
 

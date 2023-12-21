@@ -65,13 +65,24 @@ void ChatWidget::initLayout() {
 }
 
 void ChatWidget::initConnections() {
-
+    connect(sendMessage, &QPushButton::clicked, this, &ChatWidget::sendMessageSlot);
 }
 
 void ChatWidget::initStyles() {
     setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
     sendMessage->setStyleSheet("QPushButton:hover {background: gray; } QPushButton {border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;}");
     sendMessage->setCursor(QCursor(Qt::PointingHandCursor));
+}
+
+void ChatWidget::sendMessageSlot() {
+    auto textToSend = lineEdit->text();
+    if (textToSend.isEmpty()) {
+        return;
+    }
+    listWidget->addItem(textToSend);
+    listWidget->scrollToBottom();
+
+    lineEdit->clear();
 }
 
 

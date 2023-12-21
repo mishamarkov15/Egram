@@ -8,12 +8,15 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include "chatbannerwidget.h"
+#include "DatabaseManager.h"
 
 class ChatWidget : public QWidget {
 Q_OBJECT;
 public:
     explicit ChatWidget(QWidget* parent = nullptr);
     explicit ChatWidget(quint64 sender_id, quint64 contact_id, QWidget* parent = nullptr);
+public slots:
+    void sendMessageSlot();
 private:
     void initWidgetsEmpty();
     void initLayoutEmpty();

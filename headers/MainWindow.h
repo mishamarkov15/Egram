@@ -31,7 +31,6 @@ private:
     QSplitter* splitter;
     ContactList* contactList;
     ChatWidget* chat;
-    DatabaseManager* manager;
     quint64 current_user_id = 1;
 };
 
