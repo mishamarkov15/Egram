@@ -49,6 +49,7 @@ void ContactList::initStyles() {
     setStyleSheet("background-color: black; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
     FuncButton->setStyleSheet("QPushButton{background-color: black; color: white; letter-spacing: 1px; Font-Size: 38px; font-weight: 300; text-align: center;}"
                               "QPushButton:hover{background-color: black; color: gray;}");
+    FuncButton->setCursor(QCursor(Qt::PointingHandCursor));
     FuncButton->setFixedSize(40,45);
 
     searchField->setStyleSheet("border: 1px solid #FFFFFF; padding: 8px 12px; border-radius: 16px; letter-spacing: 1px;");
