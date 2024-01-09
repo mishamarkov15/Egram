@@ -61,7 +61,12 @@ void ContactItem::initConnections() {
 void ContactItem::initStyles() {
     setFixedSize(350, 75);
     setMaximumHeight(75);
-    setStyleSheet("background-color: black;");
+    setStyleSheet("background-color: black; border:1px solid #FFFFFF");
+    avatarImage->setStyleSheet("border:1px solid #000000");
+    nameLabel->setStyleSheet("border:1px solid #000000");
+    lastMessage->setStyleSheet("border:1px solid #000000");
+    lastMessageTime->setStyleSheet("border:1px solid #000000");
+
 
 
     avatarImage->setMaximumHeight(30);
