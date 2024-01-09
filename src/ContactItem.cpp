@@ -38,7 +38,7 @@ void ContactItem::initWidgets(const QMap<QString, QString> &contactItem) {
         }
         lastMessage->setText("lorem ipsum...");
         lastMessageTime->setText("4:34 PM");
-        user_id = contactItem["user_id"].toULongLong();
+        user_id = contactItem["id"].toULongLong();
     } catch (std::out_of_range &error) {
         qCritical() << error.what() << '\n';
         QErrorMessage msg(this);

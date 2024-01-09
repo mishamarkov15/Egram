@@ -1,12 +1,14 @@
 #include "../headers/MainWindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(quint32 port, quint64 user_id, QWidget *parent) :
         QMainWindow(parent),
         gridLayout(new QGridLayout()),
         centralWidget(new QWidget()),
         splitter(new QSplitter()),
         contactList(new ContactList()),
-        chat(new ChatWidget()) {
+        chat(new ChatWidget(client)),
+        current_user_id(user_id),
+        client(new ClientTCP(port, user_id, this)) {
     initWidgets();
     initLayout();
     initConnections();
@@ -42,8 +44,9 @@ void MainWindow::initStyles() {
 
 void MainWindow::openChat(quint64 id) {
     delete chat;
-    chat = new ChatWidget(current_user_id, id);
+    chat = new ChatWidget(current_user_id, id, client, this);
     splitter->addWidget(chat);
+    client->setReceiverId(id);
 }
 
 void MainWindow::setstyle() {

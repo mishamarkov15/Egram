@@ -18,7 +18,7 @@ find_package(Qt6 COMPONENTS
 
 
 set(SOURCES src/chatbannerwidget.cpp src/chatmessagewidget.cpp src/ContactItem.cpp src/ContactList.cpp src/MainWindow.cpp src/ChatWidget.cpp src/Chat.cpp)
-set(HEADERS headers/chatbannerwidget.h headers/chatmessagewidget.h headers/ContactItem.h headers/ContactList.h headers/MainWindow.h headers/ChatWidget.h headers/Chat.h src/DatabaseManager.cpp headers/DatabaseManager.h)
+set(HEADERS headers/chatbannerwidget.h headers/chatmessagewidget.h headers/ContactItem.h headers/ContactList.h headers/MainWindow.h headers/ChatWidget.h headers/Chat.h src/DatabaseManager.cpp headers/DatabaseManager.h src/ClientTCP.cpp headers/ClientTCP.h)
 
 add_executable(Egram main.cpp ${SOURCES} ${HEADERS})
 

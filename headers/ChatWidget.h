@@ -8,15 +8,21 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include "chatbannerwidget.h"
+#include "ClientTCP.h"
 #include "DatabaseManager.h"
 
 class ChatWidget : public QWidget {
 Q_OBJECT;
 public:
-    explicit ChatWidget(QWidget* parent = nullptr);
-    explicit ChatWidget(quint64 sender_id, quint64 contact_id, QWidget* parent = nullptr);
+    explicit ChatWidget(ClientTCP* client, QWidget* parent = nullptr);
+    explicit ChatWidget(quint64 sender_id, quint64 contact_id, ClientTCP* client, QWidget* parent = nullptr);
+
+    [[nodiscard]] QString getMessage() const;
+    quint64 getReceiverId() const;
 public slots:
     void sendMessageSlot();
+
+void slotAddMessage(const QByteArray& msg);
 private:
     void initWidgetsEmpty();
     void initLayoutEmpty();
@@ -38,6 +44,7 @@ private:
     chatbannerwidget* banner;
     quint64 sender_id;
     quint64 contact_id;
+    ClientTCP* client;
 };
 
 

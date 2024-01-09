@@ -61,3 +61,19 @@ DatabaseManager &DatabaseManager::getInstance() {
     static DatabaseManager databaseManager("localhost", "egram", "mikhaiil", "higofi19", 5432);
     return databaseManager;
 }
+
+void DatabaseManager::addMessage(quint64 sender_id, quint64 contact_id, const QString &message) const {
+//    QSqlDatabase::database().transaction();
+    QSqlQuery query;
+    query.prepare("INSERT INTO messages (sender_id, receiver_id, content) VALUES (:sender, :receiver, :content)");
+    query.bindValue(":sender", sender_id);
+    query.bindValue(":receiver", contact_id);
+    query.bindValue(":content", message);
+    if (query.exec()) {
+        qDebug() << "DatabaseManager: message successfully added...";
+    } else {
+        qWarning() << "DatabaseManager: message was not added!!! " << query.lastError().text();
+
+    }
+//    QSqlDatabase::database().commit();
+}

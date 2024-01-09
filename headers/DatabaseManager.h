@@ -27,6 +27,8 @@ public:
     void operator=(const DatabaseManager&) = delete;
 
     [[nodiscard]] QList<QMap<QString, QString>> selectContactsForUser(quint64 user_id) const;
+
+    void addMessage(quint64 sender_id, quint64 contact_id, const QString& message) const;
 };
 
 
